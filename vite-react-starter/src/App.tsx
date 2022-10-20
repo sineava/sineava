@@ -10,7 +10,7 @@ import ErrorComp from './components/ErrorComp'
 import Level from './components/Level'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ThemeContext from './components/Context'
-import { useState } from 'react'
+import { useState, Component } from 'react'
 
 const Left = () => <div>left</div>
 const Right = () => <div>right</div>
@@ -44,6 +44,19 @@ export default () => {
         <Level />
       </ThemeContext.Provider>
       <button onClick={toggle}>toggle theme</button>
+      <ul>
+        <Lis />
+      </ul>
     </>
   )
+}
+
+class Lis extends Component {
+  render() {
+    return [
+      <li>a</li>,
+      <li>b</li>,
+      <li>c</li>
+    ]
+  }
 }
