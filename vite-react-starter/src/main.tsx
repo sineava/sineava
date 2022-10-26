@@ -10,6 +10,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 )
 
 // 所以vue,react同时渲染是可行的,但是不推荐
-ReactDOM.createRoot(document.getElementById('root2') as HTMLElement).render(
-  <div>多root渲染</div>
-)
+// ReactDOM.createRoot(document.getElementById('root2') as HTMLElement).render(
+//   <div>多root渲染</div>
+// )
