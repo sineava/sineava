@@ -1,11 +1,11 @@
 import { Component } from 'react'
 import TopBar from './TopBar'
 import Card from './Card'
-import menu from '../assets/menu.png'
-import down from '../assets/down.png'
-import dollar from '../assets/dollar.png'
-import book from '../assets/book.png'
-import chart from '../assets/chart.png'
+import menu from '../../assets/menu.png'
+import down from '../../assets/down.png'
+import dollar from '../../assets/dollar.png'
+import book from '../../assets/book.png'
+import chart from '../../assets/chart.png'
 
 export default class extends Component<any, any> {
   constructor(props: any) {

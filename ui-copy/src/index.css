@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  height: 100vh;
-}
-
 .t-icon {
   @apply rounded-full border border-[#fff] w-[50px] h-[50px] flex justify-center items-center cursor-pointer;
 }
@@ -18,11 +14,67 @@
   animation: 2s rotate forwards;
 }
 
+.t-carousel-left-big {
+  animation: .3s t-carousel-left-big-to-little ease-out forwards;
+}
+.t-carousel-left-little {
+  animation: .3s t-carousel-left-little-to-big ease-out forwards;
+}
+.t-carousel-left-transfer {
+  animation: .3s t-carousel-left-transfer ease-out forwards;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* 大变小 */
+@keyframes t-carousel-left-big-to-little {
+  0% {
+    width: 848px;
+    height: 497px;
+    transform: translateX(0);
+    z-index: 40;
+  }
+  100% {
+    width: 774px;
+    height: 440px;
+    transform: translate(-198px, 29px);
+    z-index: 30;
+    opacity: 0;
+  }
+}
+/* 小变大 */
+@keyframes t-carousel-left-little-to-big {
+  0% {
+    width: 774px;
+    height: 440px;
+    transform: translateX(0);
+    z-index: 30;
+  }
+  100% {
+    width: 848px;
+    height: 497px;
+    transform: translate(-152px, -30px);
+    z-index: 40;
+    opacity: 0;
+  }
+}
+
+/* 横向穿梭 */
+@keyframes t-carousel-left-transfer {
+  0% {
+    transform: translateX(0);
+    z-index: 30;
+  }
+  100% {
+    /* transform: translateX(459px); */
+    transform: translateX(400px);
+    z-index: 40;
   }
 }

@@ -1,8 +1,8 @@
 import { Component } from 'react'
-import logo from '../assets/logo.png'
-import setting from '../assets/setting.png'
-import alarm from '../assets/alarm.png'
-import avatar from '../assets/avatar.png'
+import logo from '../../assets/logo.png'
+import setting from '../../assets/setting.png'
+import alarm from '../../assets/alarm.png'
+import avatar from '../../assets/avatar.png'
 
 export default class extends Component<any, any> {
   constructor(props: any) {
