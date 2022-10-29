@@ -13,6 +13,7 @@ import ThemeContext from './components/Context'
 import Mouse from './components/Mouse'
 import Cat from './components/Cat'
 import Hook from './components/Hook'
+import Animate from './components/Animate'
 import { useState, Component } from 'react'
 
 const Left = () => <div>left</div>
@@ -52,6 +53,7 @@ export default () => {
             </>
           } />
           <Route path="/hook" element={<Hook />} />
+          <Route path="/animate" element={<Animate />} />
           <Route path="/mouse" element={<Mouse render={(state: any) => <Cat {...state} />} />} />
         </Routes>
       </Router>
