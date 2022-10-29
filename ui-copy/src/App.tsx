@@ -9,7 +9,7 @@ export default class extends Component {
       <Router>
         <Routes>
           <Route path="/" element={<YuanShen />} />
-          <Route path="stocker" element={<Stocker />} />
+          <Route path="/stocker" element={<Stocker />} />
           {/* <Route path="yuanshen" element={<YuanShen />} /> */}
         </Routes>
       </Router>
