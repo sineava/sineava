@@ -8,9 +8,9 @@ export default class extends Component {
     return (
       <Router>
         <Routes>
-          <Route path="/" element={<YuanShen />} />
+          {/* <Route path="/" element={<YuanShen />} /> */}
           <Route path="/stocker" element={<Stocker />} />
-          {/* <Route path="yuanshen" element={<YuanShen />} /> */}
+          <Route path="yuanshen" element={<YuanShen />} />
         </Routes>
       </Router>
     )
