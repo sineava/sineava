@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/stocker"
+  status = 200
