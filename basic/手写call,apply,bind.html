@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写call,apply,bind</title>
+</head>
+<body>
+  <script>
+    Function.prototype.call = function(context = window, ...args) {
+      context.fn = this
+      const result = context.fn(...args)
+      delete context.fn
+      return result
+    }
+    Function.prototype.apply = function(context = window, args) {
+      context.fn = this
+      const result = args ? context.fn(...args) : context.fn()
+      delete context.fn
+      return result
+    }
+    Function.prototype.bind = function(context = window, ...args) {
+      if (typeof this !== 'function') {
+        throw new TypeError('Error')
+      }
+      const _this = this
+      return function() {
+        return _this.apply(context, args)
+      }
+    }
+    const add = function(a, b) {
+      return this.a + this.b
+      // return a + b
+    }
+    // const res = add.bind({ a: 1, b: 2 }, 2, 3)
+    // const res = add.apply({ a: 1, b: 2 }, [2, 3])
+    // const res = add.bind({ a: 1, b: 2 }, 2, 3)()
+    // console.log(res)
+  </script>
+</body>
+</html>

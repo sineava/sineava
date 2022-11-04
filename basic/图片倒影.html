@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.appcache">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片倒影</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    .avatar {
+      width: 400px;
+      height: 400px;
+      -webkit-box-reflect: right;
+      /* -webkit-box-reflect: left; */
+    }
+  </style>
+</head>
+<body>
+  <img class="avatar" src="https://cdn.jsdelivr.net/gh/sineava/picture-bed/common/avatar.png" />
+</body>
+</html>

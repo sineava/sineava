@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态字符</title>
+  <style>
+    .container:after {
+      content: '';
+      animation: dot 2s linear infinite;
+    }
+
+    @keyframes dot {
+      0% { content: '.' }
+      25% { content: '..' }
+      50% { content: '...' }
+      100% { content: '.' }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">无限字符</div>
+</body>
+</html>

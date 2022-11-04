@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自动填充</title>
+  <meta name="apple-touch-fullscreen" content="yes">
+  <style>
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 3px 100px #eee inset;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label>
+      姓名: <input type="text" placeholder="请输入" autocomplete="off" />
+    </label>
+    <label>
+      密码: <input type="password" placeholder="请输入" autocomplete="off" />
+    </label>
+    <label>
+      年龄: <input type="number" placeholder="请输入" />
+    </label>
+    <button type="submit">提交</button>
+  </form>
+</body>
+</html>
