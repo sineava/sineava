@@ -24,6 +24,36 @@
   animation: .3s t-carousel-left-transfer ease-out forwards;
 }
 
+.t-slide {
+  position: absolute;
+  width: 848px;
+  height: 498px;
+  transition: all .5s;
+  opacity: 0;
+}
+.t-slide > img {
+  width: 100%;
+}
+.t-pre-2 {
+  transform: translateX(-192px) scale(0.9);
+}
+.t-pre-1 {
+  transform: translateX(-192px) scale(0.9);
+  opacity: 1;
+}
+.t-slide-active {
+  transform: translateZ(0) scale(1);
+  opacity: 1;
+  z-index: 20;
+}
+.t-next-1 {
+  transform: translateX(192px) scale(0.9);
+  opacity: 1;
+}
+.t-next-2 {
+  transform: translateX(192px) scale(0.9);
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0);
