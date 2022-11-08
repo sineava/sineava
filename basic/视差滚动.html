@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视差滚动</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      height: 300vh;
+      background-image: url('https://pixelcog.github.io/parallax.js/img/stellar-spire-eagle-nebula-1400x900.jpg'), url('https://pixelcog.github.io/parallax.js/img/spiral-galaxy-1400x900.jpg');
+      background-repeat: no-repeat,no-repeat;
+      background-size: auto 50%, auto 50%;
+      background-position: 0 40px, 800px 400px;
+      background-attachment: fixed;
+      overflow:hidden;
+      display: flex;
+      justify-content: space-between;
+    }
+    .text {
+      font-size: 20px;
+      width: 50%;
+      margin-top: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum nesciunt mollitia iste maxime placeat quisquam vitae ipsum et. Vero harum voluptas consequatur repudiandae voluptate iste ipsa, maxime ab delectus minima nesciunt. Fugit aspernatur dicta consequuntur nobis optio, architecto maiores consequatur distinctio velit iure rerum voluptates sit, voluptate eius illo eos eaque ea nulla tenetur quam? Laudantium, itaque dignissimos aliquam officia enim corporis modi nam ab ullam tempore nesciunt, dolorem in corrupti fugit minus. Non animi suscipit molestiae quo. Facilis dolor tempore reprehenderit nulla dolorum quis blanditiis corporis doloremque suscipit? Temporibus eaque quasi eius at vero eum beatae ipsam praesentium, delectus non voluptas distinctio voluptate animi aliquam quidem nulla, quibusdam fugit iusto dolores, explicabo quaerat. Ad quae veniam magnam accusantium, obcaecati illo voluptate, maiores incidunt voluptatum repellat ipsum et laborum adipisci neque accusamus? Animi dolorum illo saepe deleniti quia reiciendis a fuga inventore voluptatibus expedita temporibus voluptates sequi explicabo facilis non, molestiae id, deserunt dignissimos dolorem recusandae iste fugit hic. Atque, aut alias! Nemo repudiandae, iusto rem sequi facilis omnis repellat unde labore soluta obcaecati fugiat dicta, rerum dolorum ullam voluptatem nulla dolor nesciunt mollitia minima accusantium temporibus ipsam? Enim impedit maxime distinctio sequi laudantium? Culpa cum mollitia excepturi necessitatibus vel!
+    </div>
+    <div style="display: flex;justify-content: right">
+      <img style="height: 600px;" src="https://pixelcog.github.io/parallax.js/img/helix-nebula-1400x1400.jpg" />
+    </div>
+  </div>
+</body>
+</html>
