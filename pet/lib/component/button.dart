@@ -1,51 +1,60 @@
 import 'package:flutter/material.dart';
 import '../utils/style.dart';
 
-class Button extends StatelessWidget {
+class Button extends StatefulWidget {
   final String type;
   final String text;
   final Color? btnColor;
   final Color? textColor;
   final String? img;
-  const Button({Key? key, required this.type, required this.text, this.btnColor, this.textColor, this.img}) : super(key: key);
+  final Function? fn;
+  const Button({Key? key, required this.type, required this.text, this.btnColor, this.textColor, this.img, this.fn}) : super(key: key);
 
-  dynamic show() {
-    return SizedBox(
-      width: 24,
-      child: Center(
-        child: Image(
-          height: 24,
-          image: AssetImage('images/$img')
-        )
-      )
-    );
-  }
+  @override
+  State<Button> createState() => _ButtonState();
+}
 
-  Widget getChild() {
+class _ButtonState extends State<Button> {
+   Widget getChild() {
+    if (widget.img == null) {
+      return Center(
+        child: Text(widget.text, style: Styles.helvetica.copyWith(fontWeight: FontWeight.w600, color: widget.textColor ?? const Color(0xFFF6F1FB)))
+      );
+    }
     return Center(
       child: Row(
         children: [
           const SizedBox(width: 34),
-          show(),
+          SizedBox(
+            width: 24,
+            child: Center(
+              child: Image(
+                height: 24,
+                image: AssetImage('images/${widget.img}')
+              )
+            )
+          ),
           const SizedBox(width: 46),
-          Text(text, style: Styles.helvetica.copyWith(fontWeight: FontWeight.w600, color: textColor ?? const Color(0xFFF6F1FB)))
+          Text(widget.text, style: Styles.helvetica.copyWith(fontWeight: FontWeight.w600, color: widget.textColor ?? const Color(0xFFF6F1FB)))
         ]
       )
     );
   }
 
   Widget getBtn() {
-    if (type == 'outline') {
+    if (widget.type == 'elevate') {
       return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: btnColor ?? const Color(0xFFFFFFFF),
+          primary: widget.btnColor ?? const Color(0xFFFFFFFF),
           maximumSize: const Size(374, 60),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(38),
           )
         ),
         // style: ButtonStyle(, ),
-        onPressed: () {},
+        onPressed: () {
+          widget.fn!();
+        },
         child: getChild()
       );
     }
