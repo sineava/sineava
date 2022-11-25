@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>speech api进行识别与朗读</title>
+  <style>
+    button {
+      background:rgb(68, 68, 151);
+      color:#fff;
+      border: none;
+      padding: 8px 20px;
+      cursor:pointer;
+    }
+    button:hover {
+      background: rgba(68, 68, 151,.8);
+    }
+  </style>
+</head>
+<body>
+  <textarea id="area" rows="10" cols="100"></textarea>
+  <div>
+    <button onClick="deacon()">朗读</button>
+    <button onClick="generate()">生成</button>
+  </div>
+  <p></p>
+  <script>
+    const area = document.getElementById('area')
+    const deacon = () => {
+      const text = area.value
+      const synth = window.speechSynthesis
+      const utterance = new SpeechSynthesisUtterance()
+      utterance.text = text
+      synth.speak(utterance)
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+    const recognition = new SpeechRecognition()
+    recognition.addEventListener('result', (e) => {
+      const text = e.results?.[0]?.[0]?.transcript
+      if (text) {
+        document.querySelector('p').innerText = `识别内容: ${text}`
+        const colorText = text.slice(-2)
+        const color = new Map([['红色', 'red'], ['绿色', 'green'], ['紫色', 'purple']]).get(colorText)
+        if (color) {
+          document.body.style.background = color
+        }
+      }
+    })
+    const generate = () => {
+      recognition.start()
+    }
+  </script>
+</body>
+</html>

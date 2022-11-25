@@ -1,0 +1,204 @@
+{
+  "name": "mido",
+  "displayName": "mido",
+  "description": "待办事项插件",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "publisher": "mido-identify",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:sineava.day.add",
+    "onCommand:sineava.week.add",
+    "onCommand:sineava.month.add",
+    "onCommand:sineava.day.remove",
+    "onCommand:sineava.week.remove",
+    "onCommand:sineava.month.remove",
+    "onCommand:sineava.day.success",
+    "onCommand:sineava.week.success",
+    "onCommand:sineava.month.success"
+  ],
+  "icon": "template/icon.png",
+  "repository": "https://github.com/sineava/blog",
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sineava.day.add",
+        "title": "新增",
+        "icon": {
+          "light": "template/svg/add-light.svg",
+					"dark": "template/svg/add-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.week.add",
+        "title": "新增",
+        "icon": {
+          "light": "template/svg/add-light.svg",
+					"dark": "template/svg/add-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.month.add",
+        "title": "新增",
+        "icon": {
+          "light": "template/svg/add-light.svg",
+					"dark": "template/svg/add-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.day.remove",
+        "title": "放弃",
+        "icon": {
+          "light": "template/svg/remove-light.svg",
+					"dark": "template/svg/remove-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.week.remove",
+        "title": "放弃",
+        "icon": {
+          "light": "template/svg/remove-light.svg",
+					"dark": "template/svg/remove-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.month.remove",
+        "title": "放弃",
+        "icon": {
+          "light": "template/svg/remove-light.svg",
+					"dark": "template/svg/remove-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.day.success",
+        "title": "已完成",
+        "icon": {
+          "light": "template/svg/success-light.svg",
+					"dark": "template/svg/success-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.week.success",
+        "title": "已完成",
+        "icon": {
+          "light": "template/svg/success-light.svg",
+					"dark": "template/svg/success-dark.svg"
+        }
+      },
+      {
+        "command": "sineava.month.success",
+        "title": "已完成",
+        "icon": {
+          "light": "template/svg/success-light.svg",
+					"dark": "template/svg/success-dark.svg"
+        }
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "sineava.day.add",
+          "when": "view == day-plan",
+          "group": "navigation"
+        },
+        {
+          "command": "sineava.week.add",
+          "when": "view == week-plan",
+          "group": "navigation"
+        },
+        {
+          "command": "sineava.month.add",
+          "when": "view == month-plan",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "sineava.day.remove",
+          "when": "view == day-plan",
+          "group": "inline"
+        },
+        {
+          "command": "sineava.week.remove",
+          "when": "view == week-plan",
+          "group": "inline"
+        },
+        {
+          "command": "sineava.month.remove",
+          "when": "view == month-plan",
+          "group": "inline"
+        },
+        {
+          "command": "sineava.day.success",
+          "when": "view == day-plan",
+          "group": "inline"
+        },
+        {
+          "command": "sineava.week.success",
+          "when": "view == week-plan",
+          "group": "inline"
+        },
+        {
+          "command": "sineava.month.success",
+          "when": "view == month-plan",
+          "group": "inline"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "plan",
+          "title": "待办",
+          "icon": "./template/svg/todo.svg"
+        }
+      ]
+    },
+    "views": {
+      "plan": [
+        {
+          "id": "day-plan",
+          "name": "日计划"
+        },
+        {
+          "id": "week-plan",
+          "name": "周计划"
+        },
+        {
+          "id": "month-plan",
+          "name": "月计划"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.26.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "axios": "^1.2.0"
+  }
+}
