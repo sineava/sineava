@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG绘制</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <svg width="400" height="400">
+    <rect x="50" y="50" width="300" height="300" stroke="#00ff00" stroke-width="10" fill="#0000ff" fill-opacity="0.4" rx="8" ry="8" />
+    <circle cx="200" cy="200" r="100" fill="#0000ff" />
+    <polygon points="100,200 200,100 300,200" fill="#ffff00" />
+    <ellipse cx="200" cy="200" rx="80" ry="50" fill="#00ff00" stroke="#ff0000" stroke-width="8" />
+    <line x1="56" y1="56" x2="344" y2="344" stroke="#ffff00" stroke-width="4" />
+    <text x="0" y="20" transform="rotate(45 20,30)">
+      SVG文本
+      <tspan x="40" y="60" fill="#fff" stroke="pink" stroke-dasharray="2 1">子文本</tspan>
+    </text>
+  </svg>
+  <svg width="100" height="100" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <a xlink:href="https://www.baidu.com" target="_blank">
+      <text x="0" y="20" fill="blue">跳转</text>
+    </a>
+  </svg>
+  <!-- 路径绘制 -->
+  <svg width="400" height="400">
+    <!-- 注意大小写区别(绝对与相对定位) -->
+    <!-- <path d="M0 200 Q200 0 400 200" fill="green" /> -->
+    <path d="M0 200 q200 -200 400 0" fill="green" />
+  </svg>
+</body>
+</html>
