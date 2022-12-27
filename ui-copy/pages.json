@@ -1,0 +1,50 @@
+{
+	"pages": [
+		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/message/index",
+			"style": {
+				"navigationBarTitleText": "邮件"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+	// "tabBar": {
+	// 	"selectedColor": "#007aff",
+	// 	"list": [
+	// 		{
+	// 			"pagePath": "pages/home/index",
+	// 			"iconPath": "static/tabbar/home.png",
+	// 			"selectedIconPath": "static/tabbar/home-active.png",
+	// 			"text": "首页"
+	// 		},
+	// 		{
+	// 			"pagePath": "pages/message/index",
+	// 			"iconPath": "static/tabbar/message.png",
+	// 			"selectedIconPath": "static/tabbar/message-active.png",
+	// 			"text": "邮件"
+	// 		},
+	// 		{
+	// 			"pagePath": "pages/me/index",
+	// 			"iconPath": "static/tabbar/me.png",
+	// 			"selectedIconPath": "static/tabbar/me-active.png",
+	// 			"text": "我的"
+	// 		}
+	// 	]
+	// }
+}
