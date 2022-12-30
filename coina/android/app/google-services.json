@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "437873685944",
+    "project_id": "coina-sienava",
+    "storage_bucket": "coina-sienava.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437873685944:android:fe0ef7cdeb9b0eac0e0b4d",
+        "android_client_info": {
+          "package_name": "com.coina.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437873685944-l7og2s2jf5pohqf75ni2oui48nfecov5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFhVeiBe4cgDEDH1o0T12-mx_Y4YM5FJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437873685944-l7og2s2jf5pohqf75ni2oui48nfecov5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "437873685944-72f4dbqvt7ghvhhbgq3o616ffrp7er3f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.coina"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437873685944:android:d3042e2211a3b0570e0b4d",
+        "android_client_info": {
+          "package_name": "com.example.coina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437873685944-l7og2s2jf5pohqf75ni2oui48nfecov5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFhVeiBe4cgDEDH1o0T12-mx_Y4YM5FJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437873685944-l7og2s2jf5pohqf75ni2oui48nfecov5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "437873685944-72f4dbqvt7ghvhhbgq3o616ffrp7er3f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.coina"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
