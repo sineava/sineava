@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue响应式</title>
+</head>
+<body>
+  <!-- 极简版-手动触发 -->
+  <!-- <script>
+    const product = { price: 5, quantity: 2 }
+    let total
+    
+    // 依赖收集器
+    let deps = new Set()
+    let effect = () => {total = product.price * product.quantity}
+
+    const track = () => (deps.add(effect))
+    const trigger = () => (deps.forEach(effect => effect()))
+    
+    track()
+    trigger()
+
+    console.log(total)
+  </script> -->
+
+  <!-- 手动触发升级版 -->
+  <!-- <script>
+    let product = { price: 5, quantity: 2 }
+    let total
+
+    const targetMap = new WeakMap()
+    const track = (target, key) => {
+      let depsMap = targetMap.get(target)
+      if (!depsMap) {
+        targetMap.set(target, (depsMap = new Map()))
+      }
+      let dep = depsMap.get(key)
+      if (!dep) {
+        depsMap.set(key, (dep = new Set()))
+      }
+      dep.add(effect)
+    }
+    const trigger = (target, key) => {
+      const depsMap = targetMap.get(target)
+      if (!depsMap) return
+      let dep = depsMap.get(key)
+      if (dep) {
+        dep.forEach(effect => effect())
+      }
+    }
+
+    const effect = () => (total = product.price * product.quantity)
+    // track(product, 'quantity')
+    effect()
+  </script> -->
+
+  <!-- 自动触发版 -->
+  <script type="module">
+    import { receiver } from './reactive.js'
+    const product = { price: 5, quantity: 2 }
+    let total
+
+    const effect = () => (total = product.price * product.quantity)
+
+    function track(target, key) {
+      let depsMap = targetMap.get(target)
+      if (!depsMap) {
+        targetMap.set(target, (depsMap = new Map()))
+      }
+      let dep = depsMap.get(key)
+      if (!dep) {
+        depsMap.set(key, (dep = new Set()))
+      }
+      dep.add(effect)
+    }
+
+    const trigger = (target, key) => {
+      const depsMap = targetMap.get(target)
+      if (!depsMap) return
+      let dep = depsMap.get(key)
+      if (dep) {
+        dep.forEach(effect => effect())
+      }
+    }
+
+    track(product, 'quantity')
+    
+    const proxy = receiver(product)
+  </script>
+</body>
+</html>
