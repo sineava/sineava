@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原生dialog,有兼容问题</title>
+  <style>
+    body {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <dialog>
+    对话框
+  </dialog>
+  <button onclick="toggle()">开启弹框</button>
+
+  <script>
+    const dialog = document.querySelector('dialog')
+    const btn = document.querySelector('button')
+    const toggle = () => {
+      if (dialog.open) { // 开启状态
+        btn.innerText = '关闭弹框'
+        dialog.close()
+      } else { // 关闭状态
+        btn.innerText = '开启弹框'
+        // dialog.showModal() // 居中&有遮罩
+        dialog.show()
+      }
+    }
+  </script>
+</body>
+</html>

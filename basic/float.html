@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float调试</title>
+  <style>
+    body { margin: 0; padding: 0 }
+    .container {
+      width: 100vw;
+      height: 42px;
+      border: 1px solid #00ff00;
+      box-sizing: border-box;
+    }
+    .item {
+      width: 40px;
+      height: 40px;
+      background-color: red;
+      margin-right: 4px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .item:last-of-type {
+      margin-right: 0;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</body>
+</html>
