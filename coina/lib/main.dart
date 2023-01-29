@@ -1,4 +1,5 @@
 import 'package:coina/widgets/home.dart';
+import 'package:coina/widgets/mine.dart';
 import 'package:flutter/material.dart';
 import 'package:coina/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   final List<Widget> list = [
     const HomeWidget(),
     const Text('消息'),
-    const Text('我的')
+    const Mine()
   ];
   int current = 0;
 

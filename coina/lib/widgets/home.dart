@@ -53,10 +53,11 @@ class _HomeWidgetState extends State<HomeWidget> {
     }
   }
 
-  FlatButton getMessage({ required String title }) {
-    return FlatButton(
+  TextButton getMessage({ required String title }) {
+    return TextButton(
       onPressed: () {},
       child: ListTile(
+        dense: true,
         leading: Container(
           padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
           decoration: BoxDecoration(
@@ -65,7 +66,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
           child: Text('提醒', style: TextStyle(color: Colors.amber[700]))
         ),
-        title: Text(title, style: TextStyle(color: Colors.black54)),
+        title: Text(title, style: const TextStyle(color: Colors.black54)),
         trailing: const Icon(Icons.navigate_next_outlined)
       )
     );
@@ -84,7 +85,7 @@ class _HomeWidgetState extends State<HomeWidget> {
       builder: (BuildContext context) {
         return Container(
           width: 414,
-          height: 448,
+          height: 440,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             color: Colors.white
@@ -215,7 +216,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   left: 6,
                   child: Container(
                     width: 382,
-                    height: 160,
+                    height: 180,
                     decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(12))),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
