@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "allowJs": false,
+    "lib": ["ESNext", "DOM"]
+  }
+}
