@@ -3,7 +3,7 @@ import { WebSocketServer } from 'ws'
 const wss = new WebSocketServer({ port: 8080 })
 const clients = [] // 连接池
 
-wss.on('connection', function connection(ws) {
+wss.on('connection', function connection(ws, req) {
   clients.push(ws)
   ws.on('message', function message(data) {
       const { type, ...user } = JSON.parse(data)
@@ -13,6 +13,7 @@ wss.on('connection', function connection(ws) {
         })
       }
       if (type === 1) { // 初次进入
+        ws.username = user.username
         clients.forEach(w => {
           w.send(JSON.stringify({ payload: user.nickname, type }))
         })
@@ -27,7 +28,9 @@ wss.on('connection', function connection(ws) {
       }
       if (type === 3) { // 图片传输
         clients.forEach(w => {
-          w.send(JSON.stringify({ payload: { ...user }, type }))
+          if (w.username !== user.username) {
+            w.send(JSON.stringify({ payload: { ...user }, type }))
+          }
         })
       }
   })
