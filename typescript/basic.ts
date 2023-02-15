@@ -38,6 +38,15 @@ function slice<T extends object, U extends keyof T>(obj: T, k: U): T[U] {
 
 console.log(slice(house, 'address'))
 
+type CatName = 'juice' | 'purple'
+interface CatInfo {
+  color: string
+}
+const cats: Record<CatName, CatInfo> = {
+  juice: { color: 'green' },
+  purple: { color: 'red' }
+}
+
 // Partial => 参数转为可选
 interface Animal {
   color: string
