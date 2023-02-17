@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { provide } from 'vue'
-import Child from './components/Child.vue'
-import { key } from './utils/index'
+import { useCounterStore } from './stores'
+// import { provide } from 'vue'
+// import Child from './components/Child.vue'
+// import { key } from './utils/index'
 
-provide(key, '你拿不到')
+// provide(key, '你拿不到')
 // import { ref } from 'vue'
 // import Model from './components/Model.vue'
 // import Mouse from './components/Mouse.vue'
@@ -12,9 +13,13 @@ provide(key, '你拿不到')
 // import Error from './components/Error.vue'
 // import Fetch from './components/Fetch.vue'
 // import ToRef from './components/ToRef.vue'
+
+const counter = useCounterStore()
+console.log(counter)
 </script>
 
 <template>
+  111
   <!-- <ToRef /> -->
   <!-- <Counter /> -->
   <!-- <Error class="top" /> -->
@@ -27,5 +32,5 @@ provide(key, '你拿不到')
   <Teleport to="body">
     <div>2233</div>
   </Teleport> -->
-  <Child name="child" />
+  <!-- <Child name="child" /> -->
 </template>
