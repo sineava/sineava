@@ -1,4 +1,10 @@
 {
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^u-(.*)": "/components/$1.vue"
+		}
+	},
 	"pages": [
 		{
 			"path": "pages/me/index",
@@ -22,8 +28,11 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+		"backgroundColor": "#F8F8F8",
+		"enablePullDownRefresh": true,
+		"onReachBottomDistance": 120
+	},
+	"style": "v2"
 	// "tabBar": {
 	// 	"selectedColor": "#007aff",
 	// 	"list": [
