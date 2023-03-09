@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖与节流</title>
+</head>
+<body>
+  <button onClick="fn('debounce')">防抖</button>
+  <button onclick="fn('throttle')">节流</button>
+
+  <script>
+    // 防抖: 事件频繁触发只执行最后一次,注意需要闭包
+    const debounce = (fn, wait) => {
+      let timer
+      return () => {
+        clearTimeout(timer)
+        timer = setTimeout(fn, wait)
+      }
+    }
+    // 指定时间只会执行一次,指定时间重复触发只会执行一次
+    const throttle = (fn, delay) => {
+      let oldTime = Date.now()
+      return () => {
+        let newTime = Date.now()
+        if (newTime - oldTime > delay) {
+          fn()
+          oldTime = Date.now()
+        }
+      }
+    }
+    const f1 = debounce(() => console.log('防抖'), 1000)
+    const f2 = throttle(() => console.log('节流'), 1000)
+    const fn = (type) => {
+      if (type === 'debounce') f1()
+      if (type === 'throttle') f2()
+    }
+    // window.addEventListener('resize', f1)
+  </script>
+</body>
+</html>
