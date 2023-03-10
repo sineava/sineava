@@ -1,0 +1,42 @@
+$color-grey: rgba(204, 214, 203, 1);
+$color-green: rgba(105, 194, 97, 1);
+$color-orange: rgba(255, 156, 26, 1);
+
+// 全局mixin
+@mixin circle {
+  border-radius: 50%;
+  background-color: rgba(204, 214, 203, 0.16);
+  position: absolute;
+}
+@mixin input {
+  width: 658rpx;
+  height: 108rpx;
+  border: 1.92rpx solid rgba(204, 214, 203, 1);
+  border-radius: 92.31rpx;
+  text-indent: 100rpx;
+  margin-top: 15rpx;
+}
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin icon {
+  top: 100rpx;
+  left: -24rpx;
+  height: 46.15rpx;
+}
+
+// 全局class
+.g-btn {
+  width: 658rpx;
+  height: 108rpx;
+  border-radius: 92.31rpx;
+  margin-top: 92rpx;
+  background-color: $color-grey;
+  color: #fff;
+  @include center;
+  &.okay {
+    background-color: $color-green;
+  }
+}
