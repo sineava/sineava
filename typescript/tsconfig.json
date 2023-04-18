@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "experimentalDecorators": true
+  }
+}

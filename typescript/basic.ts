@@ -1,3 +1,10 @@
+// const elem = <HTMLElement>document.querySelector('#app')
+const elem = document.querySelector('#app')
+elem!.innerHTML = '2233' // 非空断言
+
+const a = 202222222222222222222n
+console.log(a)
+
 interface Person {
   name: string
   age: number
