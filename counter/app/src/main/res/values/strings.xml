@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">counter</string>
+    <string name="num0">0</string>
+    <string name="num1">0</string>
+    <string name="add1">+1</string>
+    <string name="add2">+2</string>
+    <string name="add3">+3</string>
+    <string name="back">回退</string>
+    <string name="reset">重置</string>
+</resources>

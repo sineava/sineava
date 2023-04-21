@@ -1,10 +1,4 @@
-## Hello Everyone :zap:
-
-#### :green_heart: I'm a frontend developer
-#### :arrow_up: Ask me on github
-#### :pencil2: Record my daily code such as Vanilla/Vue/React/Flutter...
-
-## Current Branch
-
-#### master: master branch
-#### vue@3: record vue3 codes
+## 项目说明
+### day* 基础练习
+### counter 计数器
+### gallery 画廊

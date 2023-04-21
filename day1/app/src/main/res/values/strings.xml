@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">day1</string>
+    <string name="btn_left">左</string>
+    <string name="btn_right">右</string>
+    <string name="content">内容</string>
+    <string name="add">新增</string>
+</resources>
