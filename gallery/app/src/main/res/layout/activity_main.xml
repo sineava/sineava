@@ -1,18 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="48dp"
+            android:theme="?attr/actionBarTheme"
+            app:title="H动漫"
+            app:subtitle="首页"
+            app:subtitleTextColor="#FFFFFF"
+            app:titleTextColor="#FFFFFF" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:paddingTop="8dp"
+            android:paddingHorizontal="8dp"
+            android:contentDescription="@string/app_name">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                                <EditText
+                                        android:id="@+id/edit_text"
+                                        android:layout_width="240dp"
+                                        android:layout_height="50dp"
+                                        android:background="@null"
+                                        android:hint="请输入内容"
+                                        android:inputType="text"
+                                        android:padding="0dp"
+                                        android:textColor="#333333"
+                                        android:textSize="16sp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        android:focusable="true"
+                                        android:clickable="true"
+                                        android:focusableInTouchMode="true"
+                                        tools:ignore="MissingConstraints" />
+
+                                <Button
+                                    android:id="@+id/search"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="50dp"
+                                    android:text="搜索"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toEndOf="@+id/edit_text"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <GridLayout
+                            android:id="@+id/grid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="2"
+                            app:layout_columnWeight="1"
+                            app:layout_rowWeight="1"
+                            android:useDefaultMargins="true">
+
+                        </GridLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                                <Button
+                                    android:id="@+id/prev"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="48dp"
+                                    android:backgroundTint="#673AB7"
+                                    android:text="上一页"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <Button
+                                    android:id="@+id/next"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="48dp"
+                                    android:backgroundTint="#673AB7"
+                                    android:text="下一页"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+        </ScrollView>
+
+</LinearLayout>
