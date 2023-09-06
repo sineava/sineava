@@ -13,9 +13,8 @@
             android:background="?attr/colorPrimary"
             android:minHeight="48dp"
             android:theme="?attr/actionBarTheme"
-            app:title="H动漫"
-            app:subtitle="首页"
             app:subtitleTextColor="#FFFFFF"
+            app:title="H动漫"
             app:titleTextColor="#FFFFFF" />
 
         <ScrollView
@@ -36,24 +35,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="80dp">
 
-                                <EditText
-                                        android:id="@+id/edit_text"
-                                        android:layout_width="240dp"
-                                        android:layout_height="50dp"
-                                        android:background="@null"
-                                        android:hint="请输入内容"
-                                        android:inputType="text"
-                                        android:padding="0dp"
-                                        android:textColor="#333333"
-                                        android:textSize="16sp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        android:focusable="true"
-                                        android:clickable="true"
-                                        android:focusableInTouchMode="true"
-                                        tools:ignore="MissingConstraints" />
-
                                 <Button
                                     android:id="@+id/search"
                                     android:layout_width="wrap_content"
@@ -64,6 +45,33 @@
                                     app:layout_constraintHorizontal_bias="1.0"
                                     app:layout_constraintStart_toEndOf="@+id/edit_text"
                                     app:layout_constraintTop_toTopOf="parent" />
+
+                                <Spinner
+                                    android:id="@+id/spinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="50dp"
+                                    android:entries="@array/spinner"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/edit_text"
+                                    android:layout_width="189dp"
+                                    android:layout_height="50dp"
+                                    android:background="@null"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:hint="请输入内容"
+                                    android:inputType="text"
+                                    android:padding="0dp"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/spinner"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="MissingConstraints" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <GridLayout
@@ -86,6 +94,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="48dp"
                                     android:backgroundTint="#673AB7"
+                                    android:enabled="false"
                                     android:text="上一页"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +115,21 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="0dp">
+
+                                <WebView
+                                    android:id="@+id/webview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </LinearLayout>
         </ScrollView>
 

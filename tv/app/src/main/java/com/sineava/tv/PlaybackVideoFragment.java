@@ -41,7 +41,7 @@ public class PlaybackVideoFragment extends VideoSupportFragment {
     public void onPause() {
         super.onPause();
         if (mTransportControlGlue != null) {
-            mTransportControlGlue.pause();
+//            mTransportControlGlue.pause();
         }
     }
 }

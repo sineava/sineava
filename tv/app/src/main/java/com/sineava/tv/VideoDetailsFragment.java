@@ -29,12 +29,19 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.content.ContextCompat;
 
 import android.util.Log;
+import android.webkit.ValueCallback;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -75,7 +82,10 @@ public class VideoDetailsFragment extends DetailsSupportFragment {
             mAdapter = new ArrayObjectAdapter(mPresenterSelector);
             setupDetailsOverviewRow();
             setupDetailsOverviewRowPresenter();
-            setupRelatedMovieListRow();
+            String desc = mSelectedMovie.getDescription();
+            if (!desc.isEmpty()) {
+                setupRelatedMovieListRow(mSelectedMovie, Integer.valueOf(desc));
+            }
             setAdapter(mAdapter);
             initializeBackground(mSelectedMovie);
             setOnItemViewClickedListener(new ItemViewClickedListener());
@@ -125,21 +135,7 @@ public class VideoDetailsFragment extends DetailsSupportFragment {
 
         ArrayObjectAdapter actionAdapter = new ArrayObjectAdapter();
 
-        actionAdapter.add(
-                new Action(
-                        ACTION_WATCH_TRAILER,
-                        getResources().getString(R.string.watch_trailer_1),
-                        getResources().getString(R.string.watch_trailer_2)));
-        actionAdapter.add(
-                new Action(
-                        ACTION_RENT,
-                        getResources().getString(R.string.rent_1),
-                        getResources().getString(R.string.rent_2)));
-        actionAdapter.add(
-                new Action(
-                        ACTION_BUY,
-                        getResources().getString(R.string.buy_1),
-                        getResources().getString(R.string.buy_2)));
+        actionAdapter.add(new Action(ACTION_WATCH_TRAILER, "播放"));
         row.setActionsAdapter(actionAdapter);
 
         mAdapter.add(row);
@@ -164,9 +160,32 @@ public class VideoDetailsFragment extends DetailsSupportFragment {
             @Override
             public void onActionClicked(Action action) {
                 if (action.getId() == ACTION_WATCH_TRAILER) {
-                    Intent intent = new Intent(getActivity(), PlaybackActivity.class);
-                    intent.putExtra(DetailsActivity.MOVIE, mSelectedMovie);
-                    startActivity(intent);
+                    WebView webView = new WebView(getContext());
+                    WebSettings webSettings = webView.getSettings();
+                    webSettings.setJavaScriptEnabled(true);
+                    webSettings.setDomStorageEnabled(true);
+                    Integer num = 1;
+                    String desc = "";
+                    if (desc.indexOf("&") != -1) {
+                        String str[] = desc.split("");
+                        num = Integer.valueOf(str[str.length - 1]);
+                    }
+                    webView.loadUrl("https://www.kanjuda.com/video/?" + mSelectedMovie.getId()  +"-0-"+ (num - 1) +".html");
+                    webView.setWebViewClient(new WebViewClient() {
+                        @Override
+                        public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                            // 在這裡攔截請求，例如：
+                            String url = request.getUrl().toString();
+                            if (url.endsWith("m3u8")) {
+                                mSelectedMovie.setVideoUrl(url);
+                                Intent intent = new Intent(getActivity(), PlaybackActivity.class);
+                                intent.putExtra(DetailsActivity.MOVIE, mSelectedMovie);
+                                startActivity(intent);
+                            }
+                            return null;
+                        }
+
+                    });
                 } else {
                     Toast.makeText(getActivity(), action.toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -175,19 +194,24 @@ public class VideoDetailsFragment extends DetailsSupportFragment {
         mPresenterSelector.addClassPresenter(DetailsOverviewRow.class, detailsPresenter);
     }
 
-    private void setupRelatedMovieListRow() {
+    private void setupRelatedMovieListRow(Movie movie, Integer num) {
         String subcategories[] = {getString(R.string.related_movies)};
-        List<Movie> list = MovieList.getList();
-
-        Collections.shuffle(list);
         ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(new CardPresenter());
-        for (int j = 0; j < NUM_COLS; j++) {
-            listRowAdapter.add(list.get(j % 5));
+        List<Movie> list = new ArrayList<>();
+        String title = movie.getTitle();
+        try {
+            for (int i = 0; i < num; i++) {
+                Movie newMovie = movie.clone();
+                newMovie.setTitle(title + "&" + (i+1));
+                list.add(newMovie);
+                listRowAdapter.add(list.get(i));
+            }
+            HeaderItem header = new HeaderItem(0, subcategories[0]);
+            mAdapter.add(new ListRow(header, listRowAdapter));
+            mPresenterSelector.addClassPresenter(ListRow.class, new ListRowPresenter());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        HeaderItem header = new HeaderItem(0, subcategories[0]);
-        mAdapter.add(new ListRow(header, listRowAdapter));
-        mPresenterSelector.addClassPresenter(ListRow.class, new ListRowPresenter());
     }
 
     private int convertDpToPixel(Context context, int dp) {

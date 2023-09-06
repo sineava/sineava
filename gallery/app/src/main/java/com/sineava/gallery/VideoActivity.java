@@ -22,7 +22,9 @@ public class VideoActivity extends AppCompatActivity {
     Boolean isInit = true;
     ExoPlayer player;
     String id;
+    String type;
     FloatingActionButton btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,24 +32,33 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video);
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
+        type = intent.getStringExtra("type");
         id = intent.getStringExtra("id");
         btn = findViewById(R.id.config);
         StyledPlayerView playerView = findViewById(R.id.player);
         player = new ExoPlayer.Builder(this).build();
         playerView.setPlayer(player);
         GridLayout layout = findViewById(R.id.recommend);
+        ScrollView scrollView = findViewById(R.id.scroll_view);
         // 显示
         btn.setOnClickListener(view -> {
-            layout.setVisibility(View.VISIBLE);
-            if (isInit == true) {
-                ScrollView scrollView = findViewById(R.id.scroll_view);
-                String playUrl = "https://bad.news/dm/play/id-" + id;
-                Log.d("PURL", playUrl);
-                new Hanime(player, playerView, layout).loadHanime(layout, playUrl, scrollView, 0);
-                isInit = false;
+            if (layout.getVisibility() == View.VISIBLE) {
+                layout.removeAllViews();
+                layout.setVisibility(View.INVISIBLE);
+            } else {
+                String playUrl;
+                Hanime hanime = new Hanime(player, playerView, layout);
+                if (type.equals("dm")) {
+                    playUrl = "https://bad.news/dm/play/id-" + id;
+                    hanime.loadHanime(layout, playUrl, scrollView, 0);
+                } else {
+                    playUrl = "https://bad.news/av/" + id;
+                    hanime.loadAv(layout, playUrl, scrollView, 0);
+                }
+                layout.setVisibility(View.VISIBLE);
             }
         });
-        new Hanime().play(player, url);
+        new Hanime().play(player, url, type);
     }
 
     @Override

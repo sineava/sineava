@@ -45,7 +45,7 @@ public class CardPresenter extends Presenter {
          * will require your resources in xhdpi. For more information, see
          * https://developer.android.com/training/tv/start/layouts.html#density-resources
          */
-        mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.movie);
+        mDefaultCardImage = ContextCompat.getDrawable(parent.getContext(), R.drawable.movies);
 
         ImageCardView cardView =
                 new ImageCardView(parent.getContext()) {

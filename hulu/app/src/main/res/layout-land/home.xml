@@ -13,7 +13,7 @@
 
     <LinearLayout
         android:id="@+id/header"
-        android:layout_width="400dp"
+        android:layout_width="540dp"
         android:layout_height="100px"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -72,18 +72,19 @@
         <TextView
             android:id="@+id/page"
             android:layout_width="wrap_content"
-            android:layout_height="100px"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="第1页"
-            android:textSize="16sp" />
+            android:gravity="center"
+            android:text="第1页" />
+
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/bottom_t"
         android:layout_width="8000dp"
         android:layout_height="400dp"
-        android:gravity="center_vertical"
+        android:gravity="bottom|center_vertical"
+        android:translationY="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -95,7 +96,7 @@
             android:id="@+id/bottom_b"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
         </LinearLayout>
     </RelativeLayout>

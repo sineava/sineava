@@ -1,9 +1,12 @@
 package com.sineava.hulu.models;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     private int id;
     private String img;
     private String title;
+    private int total;
 
     public Movie() {}
 
@@ -24,5 +27,11 @@ public class Movie {
     }
     public void setTitle(String title) {
         this.title = title;
+    }
+    public int getTotal() {
+        return total;
+    }
+    public void setTotal(int total) {
+        this.total = total;
     }
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -28,9 +29,15 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false"
+            android:label="@string/title_activity_search"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".DetailsActivity"
             android:exported="false" />

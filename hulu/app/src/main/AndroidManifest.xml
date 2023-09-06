@@ -32,9 +32,8 @@
             android:name=".PlayActivity"
             android:exported="false" />
         <activity
-            android:name=".StarActivity"
-            android:exported="false"
-            android:screenOrientation="landscape" />
+            android:name=".DetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

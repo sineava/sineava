@@ -1,11 +1,13 @@
 package com.sineava.tv;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 /*
  * Movie class represents video entity with title, description, image thumbs and video url.
  */
-public class Movie implements Serializable {
+public class Movie implements Serializable, Cloneable {
     static final long serialVersionUID = 727566175075960653L;
     private long id;
     private String title;
@@ -14,6 +16,7 @@ public class Movie implements Serializable {
     private String cardImageUrl;
     private String videoUrl;
     private String studio;
+    private Integer type;
 
     public Movie() {
     }
@@ -74,6 +77,11 @@ public class Movie implements Serializable {
         this.cardImageUrl = cardImageUrl;
     }
 
+    public Integer getType() {
+        return type;
+    }
+    public void setType(Integer type) { this.type = type; }
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -83,5 +91,12 @@ public class Movie implements Serializable {
                 ", backgroundImageUrl='" + bgImageUrl + '\'' +
                 ", cardImageUrl='" + cardImageUrl + '\'' +
                 '}';
+    }
+
+    @NonNull
+    @Override
+    public Movie clone() throws CloneNotSupportedException {
+        Movie movie = (Movie )super.clone();
+        return movie;
     }
 }

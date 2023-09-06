@@ -9,6 +9,8 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Tool {
     public static List<Movie> getMovies(int type, int page) {
@@ -23,12 +25,20 @@ public class Tool {
                 Element aEl = el.selectFirst(".myui-vodlist__thumb");
                 Element imgEl = el.selectFirst("img");
                 Integer id = new Integer(aEl.attr("href").split("[?|.]")[1]);
-                String description = el.selectFirst("p").text();
                 String title = aEl.attr("title");
                 String imgUrl = imgEl.attr("data-original");
                 String total = el.selectFirst(".text-right").text();
-                String num = "";
                 String img = "";
+                movie.setTotal(0);
+                if (!total.isEmpty() && total.indexOf("1080") == -1) {
+                    String regEx="[^0-9]";
+                    Pattern p = Pattern.compile(regEx);
+                    Matcher m = p.matcher(total);
+                    String real = m.replaceAll("").trim();
+                    if (!real.isEmpty()) {
+                        movie.setTotal(Integer.valueOf(real));
+                    }
+                }
                 if (!imgUrl.isEmpty()) {
                     img = "https://www.kanjuda.com" + imgUrl;
                 }

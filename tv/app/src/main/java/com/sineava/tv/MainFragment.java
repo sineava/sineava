@@ -47,8 +47,7 @@ public class MainFragment extends BrowseSupportFragment {
     private static final int BACKGROUND_UPDATE_DELAY = 300;
     private static final int GRID_ITEM_WIDTH = 200;
     private static final int GRID_ITEM_HEIGHT = 200;
-    private static final int NUM_ROWS = 6;
-    private static final int NUM_COLS = 15;
+    private static final int NUM_ROWS = 4;
 
     private final Handler mHandler = new Handler(Looper.myLooper());
     private Drawable mDefaultBackground;
@@ -87,26 +86,26 @@ public class MainFragment extends BrowseSupportFragment {
         CardPresenter cardPresenter = new CardPresenter();
 
         int i;
+        int size = list.size();
         for (i = 0; i < NUM_ROWS; i++) {
-            if (i != 0) {
-                Collections.shuffle(list);
-            }
+//            if (i != 0) {
+//                Collections.shuffle(list);
+//            }
             ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
-            for (int j = 0; j < NUM_COLS; j++) {
-                listRowAdapter.add(list.get(j % 5));
-            }
             HeaderItem header = new HeaderItem(i, MovieList.MOVIE_CATEGORY[i]);
+            for (int j = 0; j < size; j++) {
+                if (list.get(j).getType() != 1) {
+                    System.out.println("222");
+                }
+                if (list.get(j).getType() == i+1) {
+                    listRowAdapter.add(list.get(j));
+                }
+            }
             rowsAdapter.add(new ListRow(header, listRowAdapter));
         }
 
-        HeaderItem gridHeader = new HeaderItem(i, "PREFERENCES");
-
         GridItemPresenter mGridPresenter = new GridItemPresenter();
         ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(mGridPresenter);
-        gridRowAdapter.add(getResources().getString(R.string.grid_view));
-        gridRowAdapter.add(getString(R.string.error_fragment));
-        gridRowAdapter.add(getResources().getString(R.string.personal_settings));
-        rowsAdapter.add(new ListRow(gridHeader, gridRowAdapter));
 
         setAdapter(rowsAdapter);
     }
@@ -140,8 +139,8 @@ public class MainFragment extends BrowseSupportFragment {
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
-                        .show();
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
             }
         });
 
