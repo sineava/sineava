@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超出省略</title>
+  <style>
+    div {
+      width: 200px;
+      border: 1px solid #008888;
+    }
+
+    .single {
+      height: 1em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .multiple {
+      height: 3.5em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+<body>
+  <!-- 单行省略 -->
+  <div class="single">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quos, aliquam eaque esse assumenda laborum et. Quis voluptatibus assumenda sequi.
+  </div>
+
+  <!-- 多行省略 -->
+  <div class="multiple">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt dolorum assumenda adipisci consequatur sunt maiores enim vel quos quod velit, laborum atque ab libero possimus odio ducimus. Dolorem quibusdam vero dicta culpa illo praesentium ex tempore reprehenderit cum ut beatae quos adipisci, amet repudiandae voluptas molestias dolorum, cumque consequatur recusandae! Adipisci, veniam, quas, porro suscipit ipsam accusantium qui eos deleniti totam explicabo ut velit eveniet vitae nam voluptatibus quibusdam incidunt. Veniam placeat magnam fuga magni necessitatibus? Laborum doloribus recusandae dolore animi id blanditiis voluptate, fugiat, ab cupiditate facilis et, cumque ratione. Tenetur incidunt minus est officia corporis. Voluptas corporis perferendis illo doloribus omnis. Perspiciatis temporibus nihil at repellendus quis labore natus inventore! Quae voluptate, dolor, corporis quidem cum repudiandae earum quo tempora accusantium voluptates sed aut ea accusamus assumenda incidunt praesentium ipsum ex voluptas iusto quibusdam fugiat ad exercitationem totam. Numquam quod sunt non, voluptates cum sapiente, laboriosam, laudantium harum neque perspiciatis voluptatem et maxime obcaecati vero debitis reprehenderit dignissimos? Vero reiciendis ipsam vel minus, aperiam consectetur inventore dicta nihil voluptates fugit ducimus ex accusamus, dolore nam hic, laboriosam neque magnam quisquam commodi quae quibusdam repudiandae fuga? Aliquid corporis voluptate dignissimos architecto, rerum voluptatem porro minima numquam similique culpa voluptatum incidunt ea itaque iusto sint quasi molestias dolorem. Voluptatibus incidunt sapiente esse quam deserunt mollitia libero alias ab, eligendi, expedita nihil vitae, odit neque perferendis nam voluptas. Molestias in quidem laboriosam atque sed nam expedita, illum perferendis non repellendus ipsam incidunt fuga autem facere et minus aliquid eveniet nulla! Repellat dolore provident quaerat quidem officia, id tenetur laboriosam, error officiis reiciendis at! Debitis id ab ad quidem eveniet accusamus inventore minima fugiat, necessitatibus, tempore voluptatibus? Omnis laboriosam, nam reprehenderit placeat blanditiis exercitationem reiciendis laudantium facilis minus, obcaecati in. Amet corrupti ullam eius excepturi accusantium ratione dolorem, neque eos eum dolore.
+  </div>
+</body>
+</html>
